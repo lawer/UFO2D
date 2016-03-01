@@ -11,6 +11,8 @@ class mainState extends Phaser.State {
         this.load.image('ufo', 'assets/UFO.png');
         this.load.image('pickup', 'assets/Pickup.png');
         this.load.image('background', 'assets/Background.png');
+
+        this.physics.startSystem(Phaser.Physics.ARCADE);
     }
 
     create():void {
