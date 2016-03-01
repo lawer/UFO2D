@@ -9,8 +9,8 @@ var mainState = (function (_super) {
     function mainState() {
         _super.apply(this, arguments);
         this.UFO_SIZE = 75;
-        this.MAX_SPEED = 250; // pixels/second
-        this.ACCELERATION = 750; // pixels/second/second
+        this.MAX_SPEED = 300; // pixels/second
+        this.ACCELERATION = 800; // pixels/second/second
     }
     mainState.prototype.preload = function () {
         _super.prototype.preload.call(this);
@@ -28,8 +28,10 @@ var mainState = (function (_super) {
         this.ufo = this.add.sprite(this.world.centerX, this.world.centerY, 'ufo');
         this.ufo.width = this.ufo.height = this.UFO_SIZE;
         this.ufo.anchor.setTo(0.5, 0.5);
-        this.physics.enable(this.ufo);
+        this.physics.enable(this.ufo, Phaser.Physics.ARCADE);
         this.ufo.body.maxVelocity.setTo(this.MAX_SPEED, this.MAX_SPEED); // x, y
+        this.ufo.body.collideWorldBounds = true;
+        this.ufo.body.bounce.set(0.7);
         this.cursor = this.input.keyboard.createCursorKeys();
     };
     mainState.prototype.update = function () {
