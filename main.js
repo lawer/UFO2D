@@ -39,6 +39,16 @@ var mainState = (function (_super) {
         this.ufo.body.bounce.set(0.7);
         this.ufo.body.drag.setTo(this.DRAG, this.DRAG); // x, y
         this.ufo.body.angularDrag = this.DRAG;
+        this.walls = this.add.group();
+        this.walls.enableBody = true;
+        var wall_left = this.add.sprite(0, 0, 'wall_left', null, this.walls);
+        var wall_right = this.add.sprite(0, 0, 'wall_right', null, this.walls);
+        var wall_up = this.add.sprite(0, 0, 'wall_up', null, this.walls);
+        var wall_down = this.add.sprite(0, 0, 'wall_down', null, this.walls);
+        this.walls.forEach(function (item) {
+            item.anchor.setTo(0.5, 0.5);
+            item.scale.setTo(scale);
+        }, this);
         this.cursor = this.input.keyboard.createCursorKeys();
     };
     mainState.prototype.update = function () {

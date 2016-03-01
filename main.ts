@@ -3,6 +3,8 @@
 class mainState extends Phaser.State {
     private ufo:Phaser.Sprite;
     private cursor:Phaser.CursorKeys;
+    private walls:Phaser.Group;
+
     private UFO_SIZE = 75;
     private MAX_SPEED = 300; // pixels/second
     private ACCELERATION = 800; // pixels/second/second
@@ -18,7 +20,6 @@ class mainState extends Phaser.State {
         this.load.image('wall_down', 'assets/wall_down.png');
         this.load.image('wall_left', 'assets/wall_left.png');
         this.load.image('wall_right', 'assets/wall_right.png');
-
 
         this.physics.startSystem(Phaser.Physics.ARCADE);
     }
@@ -42,6 +43,18 @@ class mainState extends Phaser.State {
         this.ufo.body.drag.setTo(this.DRAG, this.DRAG); // x, y
         this.ufo.body.angularDrag = this.DRAG;
 
+        this.walls = this.add.group();
+        this.walls.enableBody = true;
+
+        var wall_left = this.add.sprite(0, 0, 'wall_left', null, this.walls);
+        var wall_right = this.add.sprite(0, 0, 'wall_right', null, this.walls);
+        var wall_up = this.add.sprite(0, 0, 'wall_up', null, this.walls);
+        var wall_down = this.add.sprite(0, 0, 'wall_down', null, this.walls);
+
+        this.walls.forEach(function (item:Phaser.Sprite) {
+            item.anchor.setTo(0.5, 0.5);
+            item.scale.setTo(scale);
+        }, this);
         this.cursor = this.input.keyboard.createCursorKeys();
     }
 
