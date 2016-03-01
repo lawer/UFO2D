@@ -9,12 +9,15 @@ class mainState extends Phaser.State {
     private MAX_SPEED:number = 300; // pixels/second
     private ACCELERATION:number = 500; // pixels/second/second
     private DRAG:number = 100;
+    private BOUNCE:number = 0.4;
+    private ANGULAR_DRAG:number = this.DRAG * 1.3;
+    private pickup:Phaser.Sprite;
 
     preload():void {
         super.preload();
 
         this.load.image('ufo', 'assets/UFO_small.png');
-        this.load.image('pickup', 'assets/Pickup.png');
+        this.load.image('pickup', 'assets/Pickup_small.png');
         this.load.image('center', 'assets/center.png');
         this.load.image('up', 'assets/up.png');
         this.load.image('down', 'assets/down.png');
@@ -28,6 +31,7 @@ class mainState extends Phaser.State {
         super.create();
         this.createWalls();
         this.createPlayer();
+        this.createPickupObjects();
 
         this.cursor = this.input.keyboard.createCursorKeys();
     }
@@ -55,15 +59,23 @@ class mainState extends Phaser.State {
 
         this.ufo.body.maxVelocity.setTo(this.MAX_SPEED, this.MAX_SPEED); // x, y
         this.ufo.body.collideWorldBounds = true;
-        this.ufo.body.bounce.set(0.7);
+        this.ufo.body.bounce.set(this.BOUNCE);
         this.ufo.body.drag.setTo(this.DRAG, this.DRAG); // x, y
-        this.ufo.body.angularDrag = this.DRAG;
+        this.ufo.body.angularDrag = this.ANGULAR_DRAG;
     };
+
+    private createPickupObjects():void {
+        this.pickup = this.add.sprite(this.world.centerX, this.world.centerY, 'pickup');
+        this.pickup.anchor.setTo(0.5, 0.5);
+    }
 
     update():void {
         super.update();
         this.game.debug.bodyInfo(this.ufo, 0, 0);
         this.moveUfo();
+
+        this.pickup.angle += 1;
+
 
         this.physics.arcade.collide(this.ufo, this.walls)
     }
@@ -86,12 +98,13 @@ class mainState extends Phaser.State {
     };
 }
 
+
 class SimpleGame {
     game:Phaser.Game;
 
     constructor() {
         this.game = new Phaser.Game(600, 600, Phaser.AUTO, 'gameDiv');
-
+Phaser.Plugin.VirtualJoystick
         this.game.state.add('main', mainState);
         this.game.state.start('main');
     }
