@@ -10,28 +10,30 @@ var mainState = (function (_super) {
         _super.apply(this, arguments);
         this.UFO_SIZE = 75;
         this.MAX_SPEED = 300; // pixels/second
-        this.ACCELERATION = 800; // pixels/second/second
-        this.DRAG = 200; // pixels/second
+        this.ACCELERATION = 500; // pixels/second/second
+        this.DRAG = 100;
     }
     mainState.prototype.preload = function () {
         _super.prototype.preload.call(this);
-        this.load.image('ufo', 'assets/UFO.png');
+        this.load.image('ufo', 'assets/UFO_small.png');
         this.load.image('pickup', 'assets/Pickup.png');
-        this.load.image('background', 'assets/Background.png');
-        this.load.image('wall_up', 'assets/wall_up.png');
-        this.load.image('wall_down', 'assets/wall_down.png');
-        this.load.image('wall_left', 'assets/wall_left.png');
-        this.load.image('wall_right', 'assets/wall_right.png');
+        this.load.image('center', 'assets/center.png');
+        this.load.image('up', 'assets/up.png');
+        this.load.image('down', 'assets/down.png');
+        this.load.image('left', 'assets/left.png');
+        this.load.image('right', 'assets/right.png');
         this.physics.startSystem(Phaser.Physics.ARCADE);
     };
     mainState.prototype.create = function () {
         _super.prototype.create.call(this);
-        var background;
-        background = this.add.sprite(0, 0, 'background');
-        var scale = this.world.height / background.height;
-        background.scale.setTo(scale, scale);
+        this.walls = this.add.group();
+        this.walls.enableBody = true;
+        var wall_up = this.add.sprite(0, 0, 'up', null, this.walls);
+        var wall_left = this.add.sprite(0, wall_up.height, 'left', null, this.walls);
+        var center = this.add.sprite(wall_left.width, wall_up.height, 'center', null);
+        var wall_right = this.add.sprite(wall_left.width + center.width, wall_up.height, 'right', null, this.walls);
+        var wall_down = this.add.sprite(0, wall_up.height + center.height, 'down', null, this.walls);
         this.ufo = this.add.sprite(this.world.centerX, this.world.centerY, 'ufo');
-        this.ufo.width = this.ufo.height = this.UFO_SIZE;
         this.ufo.anchor.setTo(0.5, 0.5);
         this.physics.enable(this.ufo, Phaser.Physics.ARCADE);
         this.ufo.body.maxVelocity.setTo(this.MAX_SPEED, this.MAX_SPEED); // x, y
@@ -39,16 +41,6 @@ var mainState = (function (_super) {
         this.ufo.body.bounce.set(0.7);
         this.ufo.body.drag.setTo(this.DRAG, this.DRAG); // x, y
         this.ufo.body.angularDrag = this.DRAG;
-        this.walls = this.add.group();
-        this.walls.enableBody = true;
-        var wall_left = this.add.sprite(0, 0, 'wall_left', null, this.walls);
-        var wall_right = this.add.sprite(0, 0, 'wall_right', null, this.walls);
-        var wall_up = this.add.sprite(0, 0, 'wall_up', null, this.walls);
-        var wall_down = this.add.sprite(0, 0, 'wall_down', null, this.walls);
-        this.walls.forEach(function (item) {
-            item.anchor.setTo(0.5, 0.5);
-            item.scale.setTo(scale);
-        }, this);
         this.cursor = this.input.keyboard.createCursorKeys();
     };
     mainState.prototype.update = function () {
