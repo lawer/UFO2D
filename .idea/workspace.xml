@@ -49,8 +49,8 @@
       <file leaf-file-name="main.ts" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/main.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.6419753">
-              <caret line="35" column="36" selection-start-line="35" selection-start-column="36" selection-end-line="35" selection-end-column="36" />
+            <state vertical-scroll-proportion="0.19753087">
+              <caret line="8" column="20" selection-start-line="8" selection-start-column="20" selection-end-line="8" selection-end-column="20" />
               <folding />
             </state>
           </provider>
@@ -62,12 +62,12 @@
             <state vertical-scroll-proportion="0.0">
               <caret line="52" column="5" selection-start-line="52" selection-start-column="5" selection-end-line="52" selection-end-column="5" />
               <folding>
-                <marker date="1456854012841" expanded="true" signature="103:299" placeholder="{...}" />
-                <marker date="1456854012841" expanded="true" signature="336:470" placeholder="{...}" />
-                <marker date="1456854012841" expanded="true" signature="397:470" placeholder="{...}" />
-                <marker date="1456854012841" expanded="true" signature="2542:2760" placeholder="{...}" />
-                <marker date="1456854012841" expanded="true" signature="2570:2735" placeholder="{...}" />
-                <marker date="1456854012841" expanded="true" signature="2793:2829" placeholder="{...}" />
+                <marker date="1456854190797" expanded="true" signature="103:299" placeholder="{...}" />
+                <marker date="1456854190797" expanded="true" signature="336:470" placeholder="{...}" />
+                <marker date="1456854190797" expanded="true" signature="397:470" placeholder="{...}" />
+                <marker date="1456854190797" expanded="true" signature="2564:2782" placeholder="{...}" />
+                <marker date="1456854190797" expanded="true" signature="2592:2757" placeholder="{...}" />
+                <marker date="1456854190797" expanded="true" signature="2815:2851" placeholder="{...}" />
               </folding>
             </state>
           </provider>
@@ -290,7 +290,13 @@
       <option name="project" value="LOCAL" />
       <updated>1456853743580</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="World Bounce">
+      <created>1456854063535</created>
+      <option name="number" value="00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1456854063535</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -329,12 +335,14 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <MESSAGE value="Millor redimensió de l'UFO" />
     <MESSAGE value="Inicialitzem la física arcade" />
     <MESSAGE value="Debug" />
     <MESSAGE value="Basic Movement" />
     <MESSAGE value="Acceleration" />
-    <option name="LAST_COMMIT_MESSAGE" value="Acceleration" />
+    <MESSAGE value="World Bounce" />
+    <option name="LAST_COMMIT_MESSAGE" value="World Bounce" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -370,12 +378,12 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="21" column="0" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
           <folding>
-            <marker date="1456854012841" expanded="true" signature="103:299" placeholder="{...}" />
-            <marker date="1456854012841" expanded="true" signature="336:470" placeholder="{...}" />
-            <marker date="1456854012841" expanded="true" signature="397:470" placeholder="{...}" />
-            <marker date="1456854012841" expanded="true" signature="2542:2760" placeholder="{...}" />
-            <marker date="1456854012841" expanded="true" signature="2570:2735" placeholder="{...}" />
-            <marker date="1456854012841" expanded="true" signature="2793:2829" placeholder="{...}" />
+            <marker date="1456854190797" expanded="true" signature="103:299" placeholder="{...}" />
+            <marker date="1456854190797" expanded="true" signature="336:470" placeholder="{...}" />
+            <marker date="1456854190797" expanded="true" signature="397:470" placeholder="{...}" />
+            <marker date="1456854190797" expanded="true" signature="2564:2782" placeholder="{...}" />
+            <marker date="1456854190797" expanded="true" signature="2592:2757" placeholder="{...}" />
+            <marker date="1456854190797" expanded="true" signature="2815:2851" placeholder="{...}" />
           </folding>
         </state>
       </provider>
@@ -519,20 +527,20 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="52" column="5" selection-start-line="52" selection-start-column="5" selection-end-line="52" selection-end-column="5" />
           <folding>
-            <marker date="1456854012841" expanded="true" signature="103:299" placeholder="{...}" />
-            <marker date="1456854012841" expanded="true" signature="336:470" placeholder="{...}" />
-            <marker date="1456854012841" expanded="true" signature="397:470" placeholder="{...}" />
-            <marker date="1456854012841" expanded="true" signature="2542:2760" placeholder="{...}" />
-            <marker date="1456854012841" expanded="true" signature="2570:2735" placeholder="{...}" />
-            <marker date="1456854012841" expanded="true" signature="2793:2829" placeholder="{...}" />
+            <marker date="1456854190797" expanded="true" signature="103:299" placeholder="{...}" />
+            <marker date="1456854190797" expanded="true" signature="336:470" placeholder="{...}" />
+            <marker date="1456854190797" expanded="true" signature="397:470" placeholder="{...}" />
+            <marker date="1456854190797" expanded="true" signature="2564:2782" placeholder="{...}" />
+            <marker date="1456854190797" expanded="true" signature="2592:2757" placeholder="{...}" />
+            <marker date="1456854190797" expanded="true" signature="2815:2851" placeholder="{...}" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/main.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6419753">
-          <caret line="35" column="36" selection-start-line="35" selection-start-column="36" selection-end-line="35" selection-end-column="36" />
+        <state vertical-scroll-proportion="0.19753087">
+          <caret line="8" column="20" selection-start-line="8" selection-start-column="20" selection-end-line="8" selection-end-column="20" />
           <folding />
         </state>
       </provider>

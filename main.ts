@@ -6,7 +6,7 @@ class mainState extends Phaser.State {
     private UFO_SIZE = 75;
     private MAX_SPEED = 300; // pixels/second
     private ACCELERATION = 800; // pixels/second/second
-
+    private DRAG = 200; // pixels/second
 
     preload():void {
         super.preload();
@@ -34,6 +34,7 @@ class mainState extends Phaser.State {
         this.ufo.body.maxVelocity.setTo(this.MAX_SPEED, this.MAX_SPEED); // x, y
         this.ufo.body.collideWorldBounds = true;
         this.ufo.body.bounce.set(0.7);
+        this.ufo.body.drag.setTo(this.DRAG, this.DRAG); // x, y
 
         this.cursor = this.input.keyboard.createCursorKeys();
     }
@@ -53,8 +54,6 @@ class mainState extends Phaser.State {
         } else {
             this.ufo.body.acceleration.x = 0;
             this.ufo.body.acceleration.y = 0;
-            this.ufo.body.velocity.x = 0;
-            this.ufo.body.velocity.y = 0;
         }
     }
 }
