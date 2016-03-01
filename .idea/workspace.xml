@@ -49,8 +49,8 @@
       <file leaf-file-name="main.ts" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/main.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.79012346">
-              <caret line="53" column="1" selection-start-line="53" selection-start-column="1" selection-end-line="53" selection-end-column="1" />
+            <state vertical-scroll-proportion="0.17283951">
+              <caret line="28" column="62" selection-start-line="28" selection-start-column="62" selection-end-line="28" selection-end-column="62" />
               <folding />
             </state>
           </provider>
@@ -60,10 +60,14 @@
         <entry file="file://$PROJECT_DIR$/main.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="27" column="5" selection-start-line="27" selection-start-column="5" selection-end-line="27" selection-end-column="5" />
+              <caret line="49" column="5" selection-start-line="49" selection-start-column="5" selection-end-line="49" selection-end-column="5" />
               <folding>
-                <marker date="1456853216440" expanded="true" signature="874:1394" placeholder="{...}" />
-                <marker date="1456853216440" expanded="true" signature="1536:2046" placeholder="{...}" />
+                <marker date="1456853623582" expanded="true" signature="103:299" placeholder="{...}" />
+                <marker date="1456853623582" expanded="true" signature="336:470" placeholder="{...}" />
+                <marker date="1456853623582" expanded="true" signature="397:470" placeholder="{...}" />
+                <marker date="1456853623582" expanded="true" signature="2431:2649" placeholder="{...}" />
+                <marker date="1456853623582" expanded="true" signature="2459:2624" placeholder="{...}" />
+                <marker date="1456853623582" expanded="true" signature="2682:2718" placeholder="{...}" />
               </folding>
             </state>
           </provider>
@@ -274,7 +278,13 @@
       <option name="project" value="LOCAL" />
       <updated>1456852933697</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Basic Movement">
+      <created>1456853244670</created>
+      <option name="number" value="00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1456853244670</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -287,7 +297,7 @@
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3293556" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3973747" sideWeight="0.50277996" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32908458" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32890856" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32816228" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -316,7 +326,8 @@
     <MESSAGE value="Millor redimensió de l'UFO" />
     <MESSAGE value="Inicialitzem la física arcade" />
     <MESSAGE value="Debug" />
-    <option name="LAST_COMMIT_MESSAGE" value="Debug" />
+    <MESSAGE value="Basic Movement" />
+    <option name="LAST_COMMIT_MESSAGE" value="Basic Movement" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -352,8 +363,12 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="21" column="0" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
           <folding>
-            <marker date="1456853216440" expanded="true" signature="874:1394" placeholder="{...}" />
-            <marker date="1456853216440" expanded="true" signature="1536:2046" placeholder="{...}" />
+            <marker date="1456853623582" expanded="true" signature="103:299" placeholder="{...}" />
+            <marker date="1456853623582" expanded="true" signature="336:470" placeholder="{...}" />
+            <marker date="1456853623582" expanded="true" signature="397:470" placeholder="{...}" />
+            <marker date="1456853623582" expanded="true" signature="2431:2649" placeholder="{...}" />
+            <marker date="1456853623582" expanded="true" signature="2459:2624" placeholder="{...}" />
+            <marker date="1456853623582" expanded="true" signature="2682:2718" placeholder="{...}" />
           </folding>
         </state>
       </provider>
@@ -495,18 +510,22 @@
     <entry file="file://$PROJECT_DIR$/main.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="27" column="5" selection-start-line="27" selection-start-column="5" selection-end-line="27" selection-end-column="5" />
+          <caret line="49" column="5" selection-start-line="49" selection-start-column="5" selection-end-line="49" selection-end-column="5" />
           <folding>
-            <marker date="1456853216440" expanded="true" signature="874:1394" placeholder="{...}" />
-            <marker date="1456853216440" expanded="true" signature="1536:2046" placeholder="{...}" />
+            <marker date="1456853623582" expanded="true" signature="103:299" placeholder="{...}" />
+            <marker date="1456853623582" expanded="true" signature="336:470" placeholder="{...}" />
+            <marker date="1456853623582" expanded="true" signature="397:470" placeholder="{...}" />
+            <marker date="1456853623582" expanded="true" signature="2431:2649" placeholder="{...}" />
+            <marker date="1456853623582" expanded="true" signature="2459:2624" placeholder="{...}" />
+            <marker date="1456853623582" expanded="true" signature="2682:2718" placeholder="{...}" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/main.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.79012346">
-          <caret line="53" column="1" selection-start-line="53" selection-start-column="1" selection-end-line="53" selection-end-column="1" />
+        <state vertical-scroll-proportion="0.17283951">
+          <caret line="28" column="62" selection-start-line="28" selection-start-column="62" selection-end-line="28" selection-end-column="62" />
           <folding />
         </state>
       </provider>

@@ -4,7 +4,9 @@ class mainState extends Phaser.State {
     private ufo:Phaser.Sprite;
     private cursor:Phaser.CursorKeys;
     private UFO_SIZE = 75;
-    private UFO_SPEED = 200;
+    private MAX_SPEED = 250; // pixels/second
+    private ACCELERATION = 750; // pixels/second/second
+
 
     preload():void {
         super.preload();
@@ -29,26 +31,28 @@ class mainState extends Phaser.State {
         this.ufo.anchor.setTo(0.5, 0.5);
 
         this.physics.enable(this.ufo);
+        this.ufo.body.maxVelocity.setTo(this.MAX_SPEED, this.MAX_SPEED); // x, y
+
         this.cursor = this.input.keyboard.createCursorKeys();
     }
 
     update():void {
         super.update();
         this.game.debug.bodyInfo(this.ufo, 0, 0);
-        
-        this.ufo.body.velocity.x = 0;
-        this.ufo.body.velocity.y = 0;
 
         if (this.cursor.left.isDown) {
-            this.ufo.body.velocity.x = -this.UFO_SPEED;
+            this.ufo.body.acceleration.x = -this.ACCELERATION;
         } else if (this.cursor.right.isDown) {
-            this.ufo.body.velocity.x = this.UFO_SPEED;
-        }
-
-        if (this.cursor.up.isDown) {
-            this.ufo.body.velocity.y = -this.UFO_SPEED;
+            this.ufo.body.acceleration.x = this.ACCELERATION;
+        } else if (this.cursor.up.isDown) {
+            this.ufo.body.acceleration.y = -this.ACCELERATION;
         } else if (this.cursor.down.isDown) {
-            this.ufo.body.velocity.y = this.UFO_SPEED;
+            this.ufo.body.acceleration.y = this.ACCELERATION;
+        } else {
+            this.ufo.body.acceleration.x = 0;
+            this.ufo.body.acceleration.y = 0;
+            this.ufo.body.velocity.x = 0;
+            this.ufo.body.velocity.y = 0;
         }
     }
 }
