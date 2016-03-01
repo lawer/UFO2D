@@ -1,9 +1,9 @@
 /// <reference path="phaser/phaser.d.ts"/>
 
 class mainState extends Phaser.State {
-    game: Phaser.Game;
     private ufo:Phaser.Sprite;
     private cursor:Phaser.CursorKeys;
+    private UFO_SIZE = 75;
 
     preload():void {
         super.preload();
@@ -22,7 +22,7 @@ class mainState extends Phaser.State {
         background.scale.setTo(scale, scale);
 
         this.ufo = this.add.sprite(this.world.centerX, this.world.centerY, 'ufo');
-        this.ufo.scale.setTo(scale - 0.05, scale - 0.05);
+        this.ufo.width = this.ufo.height = this.UFO_SIZE;
         this.ufo.anchor.setTo(0.5, 0.5);
     }
 
@@ -44,4 +44,4 @@ class SimpleGame {
 
 window.onload = () => {
     var game = new SimpleGame();
-};git add 
+};

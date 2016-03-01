@@ -8,6 +8,7 @@ var mainState = (function (_super) {
     __extends(mainState, _super);
     function mainState() {
         _super.apply(this, arguments);
+        this.UFO_SIZE = 75;
     }
     mainState.prototype.preload = function () {
         _super.prototype.preload.call(this);
@@ -22,7 +23,7 @@ var mainState = (function (_super) {
         var scale = this.world.height / background.height;
         background.scale.setTo(scale, scale);
         this.ufo = this.add.sprite(this.world.centerX, this.world.centerY, 'ufo');
-        this.ufo.scale.setTo(scale - 0.05, scale - 0.05);
+        this.ufo.width = this.ufo.height = this.UFO_SIZE;
         this.ufo.anchor.setTo(0.5, 0.5);
     };
     mainState.prototype.update = function () {
@@ -41,6 +42,4 @@ var SimpleGame = (function () {
 window.onload = function () {
     var game = new SimpleGame();
 };
-git;
-add;
 //# sourceMappingURL=main.js.map
