@@ -26,6 +26,11 @@ var mainState = (function (_super) {
     };
     mainState.prototype.create = function () {
         _super.prototype.create.call(this);
+        this.createWalls();
+        this.createPlayer();
+        this.cursor = this.input.keyboard.createCursorKeys();
+    };
+    mainState.prototype.createWalls = function () {
         this.walls = this.add.group();
         this.walls.enableBody = true;
         var wall_up = this.add.sprite(0, 0, 'up', null, this.walls);
@@ -33,6 +38,9 @@ var mainState = (function (_super) {
         var center = this.add.sprite(wall_left.width, wall_up.height, 'center', null);
         var wall_right = this.add.sprite(wall_left.width + center.width, wall_up.height, 'right', null, this.walls);
         var wall_down = this.add.sprite(0, wall_up.height + center.height, 'down', null, this.walls);
+    };
+    ;
+    mainState.prototype.createPlayer = function () {
         this.ufo = this.add.sprite(this.world.centerX, this.world.centerY, 'ufo');
         this.ufo.anchor.setTo(0.5, 0.5);
         this.physics.enable(this.ufo, Phaser.Physics.ARCADE);
@@ -41,12 +49,13 @@ var mainState = (function (_super) {
         this.ufo.body.bounce.set(0.7);
         this.ufo.body.drag.setTo(this.DRAG, this.DRAG); // x, y
         this.ufo.body.angularDrag = this.DRAG;
-        this.cursor = this.input.keyboard.createCursorKeys();
     };
+    ;
     mainState.prototype.update = function () {
         _super.prototype.update.call(this);
         this.game.debug.bodyInfo(this.ufo, 0, 0);
         this.moveUfo();
+        this.physics.arcade.collide(this.ufo, this.walls);
     };
     mainState.prototype.moveUfo = function () {
         if (this.cursor.left.isDown) {

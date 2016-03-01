@@ -26,6 +26,13 @@ class mainState extends Phaser.State {
 
     create():void {
         super.create();
+        this.createWalls();
+        this.createPlayer();
+
+        this.cursor = this.input.keyboard.createCursorKeys();
+    }
+
+    private createWalls() {
         this.walls = this.add.group();
         this.walls.enableBody = true;
 
@@ -36,7 +43,9 @@ class mainState extends Phaser.State {
 
         var wall_right = this.add.sprite(wall_left.width + center.width, wall_up.height, 'right', null, this.walls);
         var wall_down = this.add.sprite(0, wall_up.height + center.height, 'down', null, this.walls);
+    };
 
+    private createPlayer() {
         this.ufo = this.add.sprite(this.world.centerX, this.world.centerY, 'ufo');
         this.ufo.anchor.setTo(0.5, 0.5);
 
@@ -47,14 +56,14 @@ class mainState extends Phaser.State {
         this.ufo.body.bounce.set(0.7);
         this.ufo.body.drag.setTo(this.DRAG, this.DRAG); // x, y
         this.ufo.body.angularDrag = this.DRAG;
-
-        this.cursor = this.input.keyboard.createCursorKeys();
-    }
+    };
 
     update():void {
         super.update();
         this.game.debug.bodyInfo(this.ufo, 0, 0);
         this.moveUfo();
+
+        this.physics.arcade.collide(this.ufo, this.walls)
     }
 
     private moveUfo() {
