@@ -18,6 +18,10 @@ var mainState = (function (_super) {
         this.load.image('ufo', 'assets/UFO.png');
         this.load.image('pickup', 'assets/Pickup.png');
         this.load.image('background', 'assets/Background.png');
+        this.load.image('wall_up', 'assets/wall_up.png');
+        this.load.image('wall_down', 'assets/wall_down.png');
+        this.load.image('wall_left', 'assets/wall_left.png');
+        this.load.image('wall_right', 'assets/wall_right.png');
         this.physics.startSystem(Phaser.Physics.ARCADE);
     };
     mainState.prototype.create = function () {
