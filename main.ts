@@ -26,10 +26,13 @@ class mainState extends Phaser.State {
         this.ufo = this.add.sprite(this.world.centerX, this.world.centerY, 'ufo');
         this.ufo.width = this.ufo.height = this.UFO_SIZE;
         this.ufo.anchor.setTo(0.5, 0.5);
+
+        this.physics.enable(this.ufo);
     }
 
     update():void {
         super.update();
+        this.game.debug.bodyInfo(this.ufo, 0, 0);
     }
 }
 

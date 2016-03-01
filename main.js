@@ -26,9 +26,11 @@ var mainState = (function (_super) {
         this.ufo = this.add.sprite(this.world.centerX, this.world.centerY, 'ufo');
         this.ufo.width = this.ufo.height = this.UFO_SIZE;
         this.ufo.anchor.setTo(0.5, 0.5);
+        this.physics.enable(this.ufo);
     };
     mainState.prototype.update = function () {
         _super.prototype.update.call(this);
+        this.game.debug.bodyInfo(this.ufo, 0, 0);
     };
     return mainState;
 })(Phaser.State);
