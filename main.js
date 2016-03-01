@@ -39,6 +39,9 @@ var mainState = (function (_super) {
     mainState.prototype.update = function () {
         _super.prototype.update.call(this);
         this.game.debug.bodyInfo(this.ufo, 0, 0);
+        this.moveUfo();
+    };
+    mainState.prototype.moveUfo = function () {
         if (this.cursor.left.isDown) {
             this.ufo.body.acceleration.x = -this.ACCELERATION;
         }
@@ -56,6 +59,7 @@ var mainState = (function (_super) {
             this.ufo.body.acceleration.y = 0;
         }
     };
+    ;
     return mainState;
 })(Phaser.State);
 var SimpleGame = (function () {

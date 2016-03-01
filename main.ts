@@ -42,7 +42,10 @@ class mainState extends Phaser.State {
     update():void {
         super.update();
         this.game.debug.bodyInfo(this.ufo, 0, 0);
+        this.moveUfo();
+    }
 
+    private moveUfo() {
         if (this.cursor.left.isDown) {
             this.ufo.body.acceleration.x = -this.ACCELERATION;
         } else if (this.cursor.right.isDown) {
@@ -55,7 +58,7 @@ class mainState extends Phaser.State {
             this.ufo.body.acceleration.x = 0;
             this.ufo.body.acceleration.y = 0;
         }
-    }
+    };
 }
 
 class SimpleGame {
