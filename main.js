@@ -38,6 +38,7 @@ var mainState = (function (_super) {
         var center = this.add.sprite(wall_left.width, wall_up.height, 'center', null);
         var wall_right = this.add.sprite(wall_left.width + center.width, wall_up.height, 'right', null, this.walls);
         var wall_down = this.add.sprite(0, wall_up.height + center.height, 'down', null, this.walls);
+        this.walls.setAll('body.immovable', true);
     };
     ;
     mainState.prototype.createPlayer = function () {

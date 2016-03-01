@@ -43,6 +43,8 @@ class mainState extends Phaser.State {
 
         var wall_right = this.add.sprite(wall_left.width + center.width, wall_up.height, 'right', null, this.walls);
         var wall_down = this.add.sprite(0, wall_up.height + center.height, 'down', null, this.walls);
+
+        this.walls.setAll('body.immovable', true);
     };
 
     private createPlayer() {
