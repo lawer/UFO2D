@@ -4,6 +4,7 @@ class mainState extends Phaser.State {
     private ufo:Phaser.Sprite;
     private cursor:Phaser.CursorKeys;
     private UFO_SIZE = 75;
+    private UFO_SPEED = 200;
 
     preload():void {
         super.preload();
@@ -28,11 +29,27 @@ class mainState extends Phaser.State {
         this.ufo.anchor.setTo(0.5, 0.5);
 
         this.physics.enable(this.ufo);
+        this.cursor = this.input.keyboard.createCursorKeys();
     }
 
     update():void {
         super.update();
         this.game.debug.bodyInfo(this.ufo, 0, 0);
+        
+        this.ufo.body.velocity.x = 0;
+        this.ufo.body.velocity.y = 0;
+
+        if (this.cursor.left.isDown) {
+            this.ufo.body.velocity.x = -this.UFO_SPEED;
+        } else if (this.cursor.right.isDown) {
+            this.ufo.body.velocity.x = this.UFO_SPEED;
+        }
+
+        if (this.cursor.up.isDown) {
+            this.ufo.body.velocity.y = -this.UFO_SPEED;
+        } else if (this.cursor.down.isDown) {
+            this.ufo.body.velocity.y = this.UFO_SPEED;
+        }
     }
 }
 
