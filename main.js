@@ -34,6 +34,7 @@ var mainState = (function (_super) {
         this.ufo.body.collideWorldBounds = true;
         this.ufo.body.bounce.set(0.7);
         this.ufo.body.drag.setTo(this.DRAG, this.DRAG); // x, y
+        this.ufo.body.angularDrag = this.DRAG;
         this.cursor = this.input.keyboard.createCursorKeys();
     };
     mainState.prototype.update = function () {
@@ -58,6 +59,7 @@ var mainState = (function (_super) {
             this.ufo.body.acceleration.x = 0;
             this.ufo.body.acceleration.y = 0;
         }
+        this.ufo.body.angularAcceleration = this.ufo.body.acceleration.x;
     };
     ;
     return mainState;
