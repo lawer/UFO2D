@@ -40,11 +40,11 @@ var mainState = (function (_super) {
         var wall_up = this.add.sprite(0, 0, 'up', null, this.walls);
         var wall_left = this.add.sprite(0, wall_up.height, 'left', null, this.walls);
         var center = this.add.sprite(wall_left.width, wall_up.height, 'center', null);
-        this.center_aux = this.add.sprite(wall_left.width, wall_up.height, 'center', null);
-        this.center_aux.inputEnabled = true;
         var wall_right = this.add.sprite(wall_left.width + center.width, wall_up.height, 'right', null, this.walls);
         var wall_down = this.add.sprite(0, wall_up.height + center.height, 'down', null, this.walls);
         this.walls.setAll('body.immovable', true);
+        this.pickups = this.add.group();
+        this.pickups.enableBody = true;
     };
     ;
     mainState.prototype.createPlayer = function () {
@@ -67,15 +67,19 @@ var mainState = (function (_super) {
         ];
         for (var i = 0; i < positions.length; i++) {
             var position = positions[i];
-            this.pickup = new Pickup(this.game, position.x, position.y, 'pickup');
-            this.add.existing(this.pickup);
+            var pickup = new Pickup(this.game, position.x, position.y, 'pickup');
+            this.add.existing(pickup);
+            this.pickups.add(pickup);
         }
     };
     mainState.prototype.update = function () {
         _super.prototype.update.call(this);
-        this.game.debug.spriteInputInfo(this.center_aux, 32, 32);
         this.moveUfo();
         this.physics.arcade.collide(this.ufo, this.walls);
+        this.physics.arcade.overlap(this.ufo, this.pickups, this.getPickup, null, this);
+    };
+    mainState.prototype.getPickup = function (ufo, pickup) {
+        pickup.kill();
     };
     mainState.prototype.moveUfo = function () {
         if (this.cursor.left.isDown) {

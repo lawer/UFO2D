@@ -12,8 +12,7 @@ class mainState extends Phaser.State {
     private DRAG:number = 100;
     private BOUNCE:number = 0.4;
     private ANGULAR_DRAG:number = this.DRAG * 1.3;
-    private pickup:Phaser.Sprite;
-    private center_aux;
+    private pickups:Phaser.Group;
 
     preload():void {
         super.preload();
@@ -46,13 +45,14 @@ class mainState extends Phaser.State {
         var wall_left = this.add.sprite(0, wall_up.height, 'left', null, this.walls);
 
         var center = this.add.sprite(wall_left.width, wall_up.height, 'center', null);
-        this.center_aux = this.add.sprite(wall_left.width, wall_up.height, 'center', null);
-        this.center_aux.inputEnabled = true;
 
         var wall_right = this.add.sprite(wall_left.width + center.width, wall_up.height, 'right', null, this.walls);
         var wall_down = this.add.sprite(0, wall_up.height + center.height, 'down', null, this.walls);
 
         this.walls.setAll('body.immovable', true);
+
+        this.pickups = this.add.group();
+        this.pickups.enableBody = true;
     };
 
     private createPlayer() {
@@ -78,17 +78,22 @@ class mainState extends Phaser.State {
 
         for (var i = 0; i < positions.length; i++) {
             var position = positions[i];
-            this.pickup = new Pickup (this.game, position.x, position.y, 'pickup');
-            this.add.existing(this.pickup);
+            var pickup = new Pickup (this.game, position.x, position.y, 'pickup');
+            this.add.existing(pickup);
+            this.pickups.add(pickup);
         }
     }
 
     update():void {
         super.update();
-        this.game.debug.spriteInputInfo(this.center_aux, 32, 32);
         this.moveUfo();
 
-        this.physics.arcade.collide(this.ufo, this.walls)
+        this.physics.arcade.collide(this.ufo, this.walls);
+        this.physics.arcade.overlap(this.ufo, this.pickups, this.getPickup, null, this);
+    }
+
+    getPickup(ufo:Phaser.Sprite, pickup:Phaser.Sprite){
+        pickup.kill();
     }
 
     private moveUfo() {
