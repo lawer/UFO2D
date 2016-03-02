@@ -56,14 +56,13 @@ var mainState = (function (_super) {
     };
     ;
     mainState.prototype.createPickupObjects = function () {
-        this.pickup = this.add.sprite(this.world.centerX, this.world.centerY, 'pickup');
-        this.pickup.anchor.setTo(0.5, 0.5);
+        this.pickup = new Pickup(this.game, this.world.centerX, this.world.centerY, 'pickup');
+        this.add.existing(this.pickup);
     };
     mainState.prototype.update = function () {
         _super.prototype.update.call(this);
         this.game.debug.bodyInfo(this.ufo, 0, 0);
         this.moveUfo();
-        this.pickup.angle += 1;
         this.physics.arcade.collide(this.ufo, this.walls);
     };
     mainState.prototype.moveUfo = function () {
@@ -88,10 +87,21 @@ var mainState = (function (_super) {
     ;
     return mainState;
 })(Phaser.State);
+var Pickup = (function (_super) {
+    __extends(Pickup, _super);
+    function Pickup(game, x, y, key) {
+        _super.call(this, game, x, y, key);
+        this.anchor.setTo(0.5, 0.5);
+    }
+    Pickup.prototype.update = function () {
+        _super.prototype.update.call(this);
+        this.angle += 1;
+    };
+    return Pickup;
+})(Phaser.Sprite);
 var SimpleGame = (function () {
     function SimpleGame() {
         this.game = new Phaser.Game(600, 600, Phaser.AUTO, 'gameDiv');
-        Phaser.Plugin.VirtualJoystick;
         this.game.state.add('main', mainState);
         this.game.state.start('main');
     }

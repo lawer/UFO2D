@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cbded363-c761-4b2a-9a12-24686815ba05" name="Default" comment="Immovable sprites">
+    <list default="true" id="cbded363-c761-4b2a-9a12-24686815ba05" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/Pickup_small.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main.js" afterPath="$PROJECT_DIR$/main.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main.js.map" afterPath="$PROJECT_DIR$/main.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main.ts" afterPath="$PROJECT_DIR$/main.ts" />
     </list>
     <ignored path="discover_phaser.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -49,8 +47,8 @@
       <file leaf-file-name="main.ts" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/main.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.23538461">
-              <caret line="76" column="19" selection-start-line="76" selection-start-column="19" selection-end-line="76" selection-end-column="19" />
+            <state vertical-scroll-proportion="1.6230366">
+              <caret line="100" column="29" selection-start-line="100" selection-start-column="29" selection-end-line="100" selection-end-column="29" />
               <folding />
             </state>
           </provider>
@@ -60,15 +58,14 @@
         <entry file="file://$PROJECT_DIR$/main.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="99" column="2" selection-start-line="99" selection-start-column="2" selection-end-line="99" selection-end-column="2" />
+              <caret line="107" column="2" selection-start-line="107" selection-start-column="2" selection-end-line="107" selection-end-column="2" />
               <folding>
-                <marker date="1456876505000" expanded="true" signature="2910:3126" placeholder="{...}" />
-                <marker date="1456876505000" expanded="true" signature="3174:3832" placeholder="{...}" />
-                <marker date="1456876505000" expanded="true" signature="3213:3287" placeholder="{...}" />
-                <marker date="1456876505000" expanded="true" signature="3331:3404" placeholder="{...}" />
-                <marker date="1456876505000" expanded="true" signature="3445:3519" placeholder="{...}" />
-                <marker date="1456876505000" expanded="true" signature="3562:3635" placeholder="{...}" />
-                <marker date="1456876505000" expanded="true" signature="3649:3752" placeholder="{...}" />
+                <marker date="1456877078000" expanded="true" signature="336:2747" placeholder="{...}" />
+                <marker date="1456877078000" expanded="true" signature="397:672" placeholder="{...}" />
+                <marker date="1456877078000" expanded="true" signature="719:1208" placeholder="{...}" />
+                <marker date="1456877078000" expanded="true" signature="1255:1461" placeholder="{...}" />
+                <marker date="1456877078000" expanded="true" signature="1513:2109" placeholder="{...}" />
+                <marker date="1456877078000" expanded="true" signature="2168:2657" placeholder="{...}" />
               </folding>
             </state>
           </provider>
@@ -326,14 +323,26 @@
       <option name="project" value="LOCAL" />
       <updated>1456870651461</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="One pickup">
+      <created>1456876530668</created>
+      <option name="number" value="00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1456876530668</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Create pickup class to generalize logic">
+      <created>1456877120856</created>
+      <option name="number" value="00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1456877120856</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1280" height="773" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.12946783" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.12946783" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="TypeScript Compiler" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32647058" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3293556" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
@@ -343,7 +352,7 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39528024" sideWeight="0.49722" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.39528024" sideWeight="0.49722" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -377,7 +386,9 @@
     <MESSAGE value="Preload walls" />
     <MESSAGE value="Scaled sprites and changed approach to wall colision" />
     <MESSAGE value="Immovable sprites" />
-    <option name="LAST_COMMIT_MESSAGE" value="Immovable sprites" />
+    <MESSAGE value="One pickup" />
+    <MESSAGE value="Create pickup class to generalize logic" />
+    <option name="LAST_COMMIT_MESSAGE" value="Create pickup class to generalize logic" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -413,13 +424,12 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="85" column="2" selection-start-line="85" selection-start-column="2" selection-end-line="85" selection-end-column="2" />
           <folding>
-            <marker date="1456876505000" expanded="true" signature="2910:3126" placeholder="{...}" />
-            <marker date="1456876505000" expanded="true" signature="3174:3832" placeholder="{...}" />
-            <marker date="1456876505000" expanded="true" signature="3213:3287" placeholder="{...}" />
-            <marker date="1456876505000" expanded="true" signature="3331:3404" placeholder="{...}" />
-            <marker date="1456876505000" expanded="true" signature="3445:3519" placeholder="{...}" />
-            <marker date="1456876505000" expanded="true" signature="3562:3635" placeholder="{...}" />
-            <marker date="1456876505000" expanded="true" signature="3649:3752" placeholder="{...}" />
+            <marker date="1456877078000" expanded="true" signature="336:2747" placeholder="{...}" />
+            <marker date="1456877078000" expanded="true" signature="397:672" placeholder="{...}" />
+            <marker date="1456877078000" expanded="true" signature="719:1208" placeholder="{...}" />
+            <marker date="1456877078000" expanded="true" signature="1255:1461" placeholder="{...}" />
+            <marker date="1456877078000" expanded="true" signature="1513:2109" placeholder="{...}" />
+            <marker date="1456877078000" expanded="true" signature="2168:2657" placeholder="{...}" />
           </folding>
         </state>
       </provider>
@@ -453,13 +463,12 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="90" column="2" selection-start-line="90" selection-start-column="2" selection-end-line="90" selection-end-column="2" />
           <folding>
-            <marker date="1456876505000" expanded="true" signature="2910:3126" placeholder="{...}" />
-            <marker date="1456876505000" expanded="true" signature="3174:3832" placeholder="{...}" />
-            <marker date="1456876505000" expanded="true" signature="3213:3287" placeholder="{...}" />
-            <marker date="1456876505000" expanded="true" signature="3331:3404" placeholder="{...}" />
-            <marker date="1456876505000" expanded="true" signature="3445:3519" placeholder="{...}" />
-            <marker date="1456876505000" expanded="true" signature="3562:3635" placeholder="{...}" />
-            <marker date="1456876505000" expanded="true" signature="3649:3752" placeholder="{...}" />
+            <marker date="1456877078000" expanded="true" signature="336:2747" placeholder="{...}" />
+            <marker date="1456877078000" expanded="true" signature="397:672" placeholder="{...}" />
+            <marker date="1456877078000" expanded="true" signature="719:1208" placeholder="{...}" />
+            <marker date="1456877078000" expanded="true" signature="1255:1461" placeholder="{...}" />
+            <marker date="1456877078000" expanded="true" signature="1513:2109" placeholder="{...}" />
+            <marker date="1456877078000" expanded="true" signature="2168:2657" placeholder="{...}" />
           </folding>
         </state>
       </provider>
@@ -493,13 +502,12 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="62" column="5" selection-start-line="62" selection-start-column="5" selection-end-line="62" selection-end-column="5" />
           <folding>
-            <marker date="1456876505000" expanded="true" signature="2910:3126" placeholder="{...}" />
-            <marker date="1456876505000" expanded="true" signature="3174:3832" placeholder="{...}" />
-            <marker date="1456876505000" expanded="true" signature="3213:3287" placeholder="{...}" />
-            <marker date="1456876505000" expanded="true" signature="3331:3404" placeholder="{...}" />
-            <marker date="1456876505000" expanded="true" signature="3445:3519" placeholder="{...}" />
-            <marker date="1456876505000" expanded="true" signature="3562:3635" placeholder="{...}" />
-            <marker date="1456876505000" expanded="true" signature="3649:3752" placeholder="{...}" />
+            <marker date="1456877078000" expanded="true" signature="336:2747" placeholder="{...}" />
+            <marker date="1456877078000" expanded="true" signature="397:672" placeholder="{...}" />
+            <marker date="1456877078000" expanded="true" signature="719:1208" placeholder="{...}" />
+            <marker date="1456877078000" expanded="true" signature="1255:1461" placeholder="{...}" />
+            <marker date="1456877078000" expanded="true" signature="1513:2109" placeholder="{...}" />
+            <marker date="1456877078000" expanded="true" signature="2168:2657" placeholder="{...}" />
           </folding>
         </state>
       </provider>
@@ -533,13 +541,12 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="21" column="0" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
           <folding>
-            <marker date="1456876505000" expanded="true" signature="2910:3126" placeholder="{...}" />
-            <marker date="1456876505000" expanded="true" signature="3174:3832" placeholder="{...}" />
-            <marker date="1456876505000" expanded="true" signature="3213:3287" placeholder="{...}" />
-            <marker date="1456876505000" expanded="true" signature="3331:3404" placeholder="{...}" />
-            <marker date="1456876505000" expanded="true" signature="3445:3519" placeholder="{...}" />
-            <marker date="1456876505000" expanded="true" signature="3562:3635" placeholder="{...}" />
-            <marker date="1456876505000" expanded="true" signature="3649:3752" placeholder="{...}" />
+            <marker date="1456877078000" expanded="true" signature="336:2747" placeholder="{...}" />
+            <marker date="1456877078000" expanded="true" signature="397:672" placeholder="{...}" />
+            <marker date="1456877078000" expanded="true" signature="719:1208" placeholder="{...}" />
+            <marker date="1456877078000" expanded="true" signature="1255:1461" placeholder="{...}" />
+            <marker date="1456877078000" expanded="true" signature="1513:2109" placeholder="{...}" />
+            <marker date="1456877078000" expanded="true" signature="2168:2657" placeholder="{...}" />
           </folding>
         </state>
       </provider>
@@ -673,15 +680,14 @@
     <entry file="file://$PROJECT_DIR$/main.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="99" column="2" selection-start-line="99" selection-start-column="2" selection-end-line="99" selection-end-column="2" />
+          <caret line="107" column="2" selection-start-line="107" selection-start-column="2" selection-end-line="107" selection-end-column="2" />
           <folding>
-            <marker date="1456876505000" expanded="true" signature="2910:3126" placeholder="{...}" />
-            <marker date="1456876505000" expanded="true" signature="3174:3832" placeholder="{...}" />
-            <marker date="1456876505000" expanded="true" signature="3213:3287" placeholder="{...}" />
-            <marker date="1456876505000" expanded="true" signature="3331:3404" placeholder="{...}" />
-            <marker date="1456876505000" expanded="true" signature="3445:3519" placeholder="{...}" />
-            <marker date="1456876505000" expanded="true" signature="3562:3635" placeholder="{...}" />
-            <marker date="1456876505000" expanded="true" signature="3649:3752" placeholder="{...}" />
+            <marker date="1456877078000" expanded="true" signature="336:2747" placeholder="{...}" />
+            <marker date="1456877078000" expanded="true" signature="397:672" placeholder="{...}" />
+            <marker date="1456877078000" expanded="true" signature="719:1208" placeholder="{...}" />
+            <marker date="1456877078000" expanded="true" signature="1255:1461" placeholder="{...}" />
+            <marker date="1456877078000" expanded="true" signature="1513:2109" placeholder="{...}" />
+            <marker date="1456877078000" expanded="true" signature="2168:2657" placeholder="{...}" />
           </folding>
         </state>
       </provider>
@@ -696,8 +702,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/main.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.23538461">
-          <caret line="76" column="19" selection-start-line="76" selection-start-column="19" selection-end-line="76" selection-end-column="19" />
+        <state vertical-scroll-proportion="1.6230366">
+          <caret line="100" column="29" selection-start-line="100" selection-start-column="29" selection-end-line="100" selection-end-column="29" />
           <folding />
         </state>
       </provider>
