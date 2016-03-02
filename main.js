@@ -32,6 +32,8 @@ var mainState = (function (_super) {
         this.createWalls();
         this.createPlayer();
         this.createPickupObjects();
+        this.world.scale.setTo(1.25);
+        this.camera.follow(this.ufo, Phaser.Camera.FOLLOW_TOPDOWN_TIGHT);
         this.cursor = this.input.keyboard.createCursorKeys();
     };
     mainState.prototype.createWalls = function () {
@@ -52,7 +54,7 @@ var mainState = (function (_super) {
         this.ufo.anchor.setTo(0.5, 0.5);
         this.physics.enable(this.ufo, Phaser.Physics.ARCADE);
         this.ufo.body.maxVelocity.setTo(this.MAX_SPEED, this.MAX_SPEED); // x, y
-        this.ufo.body.collideWorldBounds = true;
+        //this.ufo.body.collideWorldBounds = true;
         this.ufo.body.bounce.set(this.BOUNCE);
         this.ufo.body.drag.setTo(this.DRAG, this.DRAG); // x, y
         this.ufo.body.angularDrag = this.ANGULAR_DRAG;
@@ -72,6 +74,8 @@ var mainState = (function (_super) {
             var position = positions[i];
             var pickup = new Pickup(this.game, position.x, position.y, 'pickup');
             this.add.existing(pickup);
+            pickup.scale.setTo(0, 0);
+            this.add.tween(pickup.scale).to({ x: 1, y: 1 }, 300).start();
             this.pickups.add(pickup);
         }
     };
@@ -82,7 +86,12 @@ var mainState = (function (_super) {
         this.physics.arcade.overlap(this.ufo, this.pickups, this.getPickup, null, this);
     };
     mainState.prototype.getPickup = function (ufo, pickup) {
-        pickup.kill();
+        var tween = this.add.tween(pickup.scale).to({ x: 0, y: 0 }, 50);
+        tween.onComplete.add(function () {
+            pickup.kill();
+        });
+        tween.start();
+        //pickup.kill();
     };
     mainState.prototype.moveUfo = function () {
         if (this.cursor.left.isDown) {

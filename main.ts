@@ -34,6 +34,9 @@ class mainState extends Phaser.State {
         this.createPlayer();
         this.createPickupObjects();
 
+        this.world.scale.setTo(1.25);
+        this.camera.follow(this.ufo, Phaser.Camera.FOLLOW_TOPDOWN_TIGHT);
+
         this.cursor = this.input.keyboard.createCursorKeys();
     }
 
@@ -62,7 +65,7 @@ class mainState extends Phaser.State {
         this.physics.enable(this.ufo, Phaser.Physics.ARCADE);
 
         this.ufo.body.maxVelocity.setTo(this.MAX_SPEED, this.MAX_SPEED); // x, y
-        this.ufo.body.collideWorldBounds = true;
+        //this.ufo.body.collideWorldBounds = true;
         this.ufo.body.bounce.set(this.BOUNCE);
         this.ufo.body.drag.setTo(this.DRAG, this.DRAG); // x, y
         this.ufo.body.angularDrag = this.ANGULAR_DRAG;
@@ -84,6 +87,10 @@ class mainState extends Phaser.State {
             var position = positions[i];
             var pickup = new Pickup (this.game, position.x, position.y, 'pickup');
             this.add.existing(pickup);
+
+            pickup.scale.setTo(0, 0);
+            this.add.tween(pickup.scale).to({x: 1, y: 1}, 300).start();
+
             this.pickups.add(pickup);
         }
     }
@@ -97,7 +104,12 @@ class mainState extends Phaser.State {
     }
 
     getPickup(ufo:Phaser.Sprite, pickup:Phaser.Sprite){
-        pickup.kill();
+        var tween = this.add.tween(pickup.scale).to({x: 0, y: 0}, 50);
+        tween.onComplete.add(function () {
+            pickup.kill();
+        });
+        tween.start();
+        //pickup.kill();
     }
 
     private moveUfo() {
