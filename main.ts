@@ -4,7 +4,7 @@ import Point = Phaser.Point;
 class mainState extends Phaser.State {
     private ufo:Phaser.Sprite;
     private cursor:Phaser.CursorKeys;
-    private walls:Phaser.Group;
+    private walls:Phaser.TilemapLayer;
 
     private UFO_SIZE = 75;
     private MAX_SPEED:number = 300; // pixels/second
@@ -13,17 +13,16 @@ class mainState extends Phaser.State {
     private BOUNCE:number = 0.4;
     private ANGULAR_DRAG:number = this.DRAG * 1.3;
     private pickups:Phaser.Group;
+    private map:Phaser.Tilemap;
 
     preload():void {
         super.preload();
 
         this.load.image('ufo', 'assets/UFO_small.png');
         this.load.image('pickup', 'assets/Pickup_small.png');
-        this.load.image('center', 'assets/center.png');
-        this.load.image('up', 'assets/up.png');
-        this.load.image('down', 'assets/down.png');
-        this.load.image('left', 'assets/left.png');
-        this.load.image('right', 'assets/right.png');
+
+        this.game.load.tilemap('tilemap', 'assets/map.json', null, Phaser.Tilemap.TILED_JSON);
+        this.game.load.image('tiles', 'assets/Background_small.png');
 
         this.physics.startSystem(Phaser.Physics.ARCADE);
     }
@@ -34,44 +33,42 @@ class mainState extends Phaser.State {
         this.createPlayer();
         this.createPickupObjects();
 
-        this.world.scale.setTo(1.25);
+        //this.world.scale.setTo(1.25);
         this.camera.follow(this.ufo, Phaser.Camera.FOLLOW_TOPDOWN_TIGHT);
 
         this.cursor = this.input.keyboard.createCursorKeys();
     }
 
     private createWalls() {
-        this.walls = this.add.group();
-        this.walls.enableBody = true;
+        this.map = this.game.add.tilemap('tilemap');
+        this.map.addTilesetImage('Background_small', 'tiles');
 
-        var wall_up = this.add.sprite(0, 0, 'up', null, this.walls);
-        var wall_left = this.add.sprite(0, wall_up.height, 'left', null, this.walls);
+        var background = this.map.createLayer('background');
+        this.walls = this.map.createLayer('walls');
 
-        var center = this.add.sprite(wall_left.width, wall_up.height, 'center', null);
-
-        var wall_right = this.add.sprite(wall_left.width + center.width, wall_up.height, 'right', null, this.walls);
-        var wall_down = this.add.sprite(0, wall_up.height + center.height, 'down', null, this.walls);
-
-        this.walls.setAll('body.immovable', true);
-
-        this.pickups = this.add.group();
-        this.pickups.enableBody = true;
+        this.map.setCollisionBetween(1, 100, true, 'walls');
     };
 
     private createPlayer() {
+        this.pickups = this.add.group();
+        this.pickups.enableBody = true;
+
         this.ufo = this.add.sprite(this.world.centerX, this.world.centerY, 'ufo');
         this.ufo.anchor.setTo(0.5, 0.5);
 
         this.physics.enable(this.ufo, Phaser.Physics.ARCADE);
 
         this.ufo.body.maxVelocity.setTo(this.MAX_SPEED, this.MAX_SPEED); // x, y
-        //this.ufo.body.collideWorldBounds = true;
+        this.ufo.body.collideWorldBounds = true;
         this.ufo.body.bounce.set(this.BOUNCE);
         this.ufo.body.drag.setTo(this.DRAG, this.DRAG); // x, y
         this.ufo.body.angularDrag = this.ANGULAR_DRAG;
     };
 
     private createPickupObjects():void {
+        this.pickups = this.add.group();
+        this.pickups.enableBody = true;
+
         var positions:Point[] = [
             new Point(300, 95),
             new Point(190, 135), new Point(410, 135),
@@ -80,7 +77,6 @@ class mainState extends Phaser.State {
             new Point(120, 405), new Point(480, 405),
             new Point(190, 465), new Point(410, 465),
             new Point(300, 505),
-
         ];
 
         for (var i = 0; i < positions.length; i++) {
